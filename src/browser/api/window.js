@@ -2103,7 +2103,7 @@ function setIcon(browserWindow, iconFilepath, errorCallback = () => {}) {
         let icon = nativeImage.createFromPath(iconFilepath);
         if (icon.isEmpty()) {
             errorCallback();
-        } else {
+        } else if (browserWindow.setIcon) {
             browserWindow.setIcon(icon);
         }
     }
